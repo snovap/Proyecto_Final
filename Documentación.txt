@@ -1,3 +1,4 @@
 En el presente texto, se ilustrará la documentación  pertinente para la realización del proyecto...
 
-Desde el área del front-end 
+Desde el área del front-end: 
+Desde el área del back-end:
