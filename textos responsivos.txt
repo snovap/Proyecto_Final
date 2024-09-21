@@ -1,0 +1,5 @@
+======== HEADER ==============
+.nav__logo
+Explora
+
+.nav__link
