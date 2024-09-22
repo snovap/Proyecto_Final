@@ -3,3 +3,36 @@
 Explora
 
 .nav__link
+Inicio - Destinos - Personalizar tour - Experiencia - Ofertas - Blog
+
+======== Inicio ===============
+.inicio__subtitle
+Bienvenido al Viaje
+
+.inicio__title
+Explora <br> 
+El Amazonas
+
+.inicio__description
+
+
+Personaliza tu aventura en la selva más grande del mundo. Vive una experiencia única llena de naturaleza, cultura y emoción. ¡Reserva hoy y comienza tu viaje inolvidable!
+
+.button
+Inicia tu Viaje
+
+.inicio__card-title
+Isla de los Micos
+Reserva Natural Tanimboca
+Lago Tarapoto
+Puerto Nariño
+
+
+
+
+
+
+
+/* Extras */
+Descubre la majestuosidad de la selva más grande del mundo con nuestros paquetes turísticos personalizados. Sumérgete en la cultura, naturaleza y aventura que solo el Amazonas puede ofrecer. Diseña tu viaje según tu presupuesto y prepárate para vivir una experiencia única. ¡Consigue tu viaje ahora y déjate cautivar por el encanto de la Amazonía!
+
