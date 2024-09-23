@@ -27,6 +27,19 @@ Reserva Natural Tanimboca
 Lago Tarapoto
 Puerto Nariño
 
+/*============= Nosotros ====================*/
+.section__title
+Más información  <br>
+Acerca de SGPMETA
+
+.nosotros__description
+Explora la belleza oculta del Amazonas, un paraíso natural lleno de aventuras únicas. Descubre paisajes inolvidables, cultura ancestral y una biodiversidad incomparable. Viaja de forma segura y personalizada, ajustando tu experiencia según tu presupuesto. ¡Consigue tu viaje ahora y adéntrate en los secretos del pulmón del mundo!
+
+.button 
+Explora SGPMETA
+
+
+
 
 
 
