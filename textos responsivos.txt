@@ -39,6 +39,21 @@ Explora la belleza oculta del Amazonas, un paraíso natural lleno de aventuras �
 Explora SGPMETA
 
 
+/*=============== Atractivos =================*/
+.section__title
+Disfruta la belleza <br> 
+del Amazonas 
+
+.atractivo__title . atractivo__location
+Puerto Nariño
+Amazonas
+
+Isla de los Micos 
+Amazonas
+
+lago tarapoto
+Amazonas
+
 
 
 
