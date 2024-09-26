@@ -54,6 +54,67 @@ Amazonas
 lago tarapoto
 Amazonas
 
+/*=============== Explore =====================*/
+
+.section__title
+Descubre los <br>
+Tesoros más exóticos del Amazonas.
+
+.explore__description
+Explorar maravillas como la selva y los ríos del Amazonas es una de las experiencias más increíbles al viajar. Te conecta con la naturaleza en su forma más pura, ofreciéndote una profunda sensación de paz y armonía. En este destino único, puedes disfrutar de la belleza natural con comodidad, mientras te sumerges en la grandeza de uno de los ecosistemas más fascinantes del planeta.
+
+.explore__name
+Elton Nova
+
+================= JOIN =========================
+.section__title
+Tu Aventura  <br>
+Comienza Aquí
+
+.join__description
+Mantente al día con las últimas novedades y recomendaciones de viaje que tenemos para ti.
+
+.join__input placeholder
+Ingresa tu email
+
+.join__button
+Regístrate en nuestra newsletter
+
+================= FOOTER ==========================
+
+.footer__logo
+Explora
+
+.footer__description
+Viaja con nosotros y explora <br>
+El Amazonas sin límites.
+
+.footer__title .footer__link
+Acerca de
+    Nosotros
+    Caracteristicas
+    Noticias & Blog
+
+Compañia
+    PQRs
+    Historial
+    Testimonios
+
+Contacto
+    Call Center
+    Soporte
+    Contactenos
+
+Support
+    Politica de privacidad
+    Terminos & Condiciones
+    Pagos
+
+
+.footer__copy
+&#169; Copyright Bedimcode. All rights reserved.
+
+
 
 
 
