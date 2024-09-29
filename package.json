@@ -2,7 +2,7 @@
   "name": "proyecto_final",
   "version": "1.0.0",
   "description": "En este repositorio se desarrolla la primer aplicación elaborada con los conocimientos del curso de Desarrollo Web Full Stack",
-  "main": "app.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.11.3"
   }
 }
