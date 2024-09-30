@@ -903,3 +903,70 @@ img{
         right: 3rem;
     }
 }
+
+
+/*Estilos para los formularios (login y registro)*/ 
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #45a049;
+  }
+  
+  form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo para mensajes de error */
+  .form-error {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo para mensajes de éxito */
+  .form-success {
+    color: green;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  .login-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .registro-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+  }
