@@ -436,6 +436,7 @@ img{
     transform: scale(1.2);
 }
 
+
 /*============= Explore =============*/
 
 .explore{
@@ -717,7 +718,7 @@ img{
     .atractivo__container{
         grid-template-columns: repeat(2, 240px);
     }
-
+  
     .explore__img{
         width: 100vw;
     }
@@ -756,6 +757,7 @@ img{
     .atractivo__container{
         grid-template-columns: repeat(3, 240px);
     }
+
 
     .footer__data{
         grid-template-columns: repeat(4, max-content);
@@ -841,6 +843,7 @@ img{
     .atractivo__title{
         font-size: var(--h2-font-size);
     }
+   
     .atractivo__location{
         font-size: var(--normal-font-size);
     }

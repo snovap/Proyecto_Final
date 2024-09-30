@@ -1,48 +1,107 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!--==========FAVICON ==========-->
-    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
-
-    <!--========== REMIXICONS========-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
-    rel="stylesheet"/>
-
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="assets/css/styles.css"> 
+    <title>Explora el Amazonas - Atractivos</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
 </head>
+
 <body>
     <header>
         <nav class="nav container">
             <div class="nav__menu" id="nav-menu">
-                <a href="index.html" >SPGMETA</a>
+                <a href="index.html">SPGMETA</a>
             </div>
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
                 <li class="nav__item"><a href="index.html#nosotros" class="nav__link">Nosotros</a></li>
-                <li class="nav__item"><a href="index.html#atractivos" class="nav__link">Atractivos</a></li>
-                <li class="nav__item"><a href="index.html#paquetes" class="nav__link">Paquetes</a></li>
+                <li class="nav__item"><a href="atractivos.html" class="nav__link">Atractivos</a></li>
+                <li class="nav__item"><a href="experiencias.html" class="nav__link">Experiencias</a></li>
+                <li class="nav__item"><a href="ofertas.html" class="nav__link">Ofertas</a></li>
                 <li class="nav__item"><a href="index.html#explore" class="nav__link">Explore</a></li>
             </ul>
         </nav>
     </header>
-    <main class="login-container"> 
-        <h1>Iniciar Sesión</h1>
-        <form action="/login" method="POST">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Tu correo" required>
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-            <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
-        </form>
-        
+
+    <main class="main">
+        <section class="atractivos section" id="atractivos">
+            <h2 class="section__title">Disfruta la belleza <br> del Amazonas</h2>
+
+            <div class="atractivos__container container grid">
+                <article class="atractivo__card">
+                    <div class="atractivo__image">
+                        <img src="assets/img/inicio-ptoNarino.jpg" alt="atractivo image" class="atractivo__img">
+                    </div>
+
+                    <h2 class="atractivo__title">
+                        <a href="#puerto-narino">Puerto Nariño</a>
+                    </h2>
+
+                    <div class="atractivo__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>Amazonas</span>
+                    </div>
+
+                    <div class="atractivo__description" id="puerto-narino">
+                        <p>Puerto Nariño es una localidad ubicada en el departamento del Amazonas, en Colombia. Es un lugar
+                            turístico muy popular por sus hermosas playas y su rica biodiversidad. El clima es cálido y húmedo,
+                            lo
+                            que la hace ideal para disfrutar de la naturaleza.</p>
+                    </div>
+                </article>
+
+                <article class="atractivo__card">
+                    <div class="atractivo__image">
+                        <img src="assets/img/inicio-islaMicos.jpg" alt="atractivo image" class="atractivo__img">
+                    </div>
+
+                    <h2 class="atractivo__title">
+                        <a href="#isla-de-los-micos">Isla de los Micos</a>
+                    </h2>
+
+                    <div class="atractivo__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>Amazonas</span>
+                    </div>
+
+                    <div class="atractivo__description" id="isla-de-los-micos">
+                        <p>Isla de los Micos es un lugar turístico muy popular en el Amazonas, Colombia. Es una isla con
+                            playas
+                            de ensueño, rodeada de selva y con una gran biodiversidad. Es ideal para disfrutar de la
+                            naturaleza y
+                            relajarse en un ambiente tranquilo.</p>
+                    </div>
+                </article>
+
+                <article class="atractivo__card">
+                    <div class="atractivo__image">
+                        <img src="assets/img/inicio-tarapoto.jpg" alt="atractivo image" class="atractivo__img">
+                    </div>
+
+                    <h2 class="atractivo__title">
+                        <a href="#lago-tarapoto">Lago Tarapoto</a>
+                    </h2>
+
+                    <div class="atractivo__location">
+                        <i class="ri-map-pin-line"></i>
+                        <span>Amazonas</span>
+                    </div>
+
+                    <div class="atractivo__description" id="lago-tarapoto">
+                        <p>El Lago Tarapoto es un lugar turístico muy popular en el Amazonas, Colombia. Es un lago con
+                            aguas
+                            cristalinas y rodeado de selva, lo que la hace ideal para disfrutar de la naturaleza y
+                            relajarse en un
+                            ambiente tranquilo.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
     </main>
 
-
+    <!--============ FOOTER ==========-->
     <!--============ FOOTER ==========-->
     <footer class="footer" id="footer">
         <div class="footer__container container grid">
@@ -150,21 +209,12 @@
                     </a>
 
                     <span class="footer__copy">
-                        &#169; Copyright Bedimcode. All rights reserved.
+                        &#169; Copyright spgmeta. All rights reserved.
                     </span>
-
-
-
-
-
-
-
-
                 </div>
             </div>
         </div>
     </footer>
-
 </body>
-</html>
 
+</html>
