@@ -21,7 +21,7 @@
     <!--========== HEADER ==========-->
     <header class="header" id="header">
         <nav class="nav container">
-            <a href="login.html" class="login-btn">
+            <a href="login.html" class="nav__logo">
                 Iniciar sesión
             </a>
             
@@ -31,7 +31,7 @@
                         <a href="#inicio" class="nav__link active-link">Inicio</a>
                     </li>
 
-                    <li class="nav__item"></li>
+                    <li class="nav__item">
                         <a href="#nosotros" class="nav__link">Nosotros</a>
                     </li>
 
@@ -40,8 +40,12 @@
                     </li>
 
                     <li class="nav__item">
-                        <a href="#paquetes" class="nav__link">Paquetes</a>
+                        <a href="paquetes.html" class="nav__link">Paquetes</a>
                     </li>  
+
+                    <li class="nav__item">
+                        <a href="vuelos.html" class="nav__link">Vuelos</a>
+                    </li> 
 
                     <li class="nav__item">
                         <a href="#explore" class="nav__link">Explore</a>
@@ -66,7 +70,7 @@
     <main class="main">
         <!--========== Inicio ==========-->
         <section class="inicio section" id="inicio">
-            <img src="assets/img/inicio-bg.jpg" alt="inicio image" class="inicio__bg">
+            <img src="assets/img/home-bg.jpg" alt="inicio image" class="inicio__bg">
             <div class="inicio__shadow"></div>
 
             <div class="inicio__container container grid">
@@ -84,7 +88,7 @@
                         Inicia tu aventura en la selva más grande del mundo. Vive una experiencia única llena de naturaleza, cultura y emoción. ¡Reserva hoy y comienza tu viaje inolvidable!
                     </p>
 
-                    <a href="#" class="button">
+                    <a href="vuelos.html" class="button">
                         Inicia tu Viaje <i class="ri-arrow-right-line"></i>
                     </a>
 
@@ -92,25 +96,25 @@
 
                 <div class="inicio__cards grid">
                     <article class="inicio__card">
-                        <img src="assets/img/inicio-islaMicos.jpg" alt="inicio image" class="inicio__card-img">
+                        <img src="assets/img/home-trees.jpg" alt="inicio image" class="inicio__card-img">
                         <h3 class="inicio__card-title">Isla de los Micos</h3>
                         <div class="inicio__shadow"></div>
                     </article>
 
                     <article class="inicio__card">
-                        <img src="assets/img/inicio-tanimboca.jpg" alt="inicio image" class="inicio__card-img">
+                        <img src="assets/img/home-mountain.jpg" alt="inicio image" class="inicio__card-img">
                         <h3 class="inicio__card-title">Reserva Natural Tanimboca </h3>
                         <div class="inicio__shadow"></div>
                     </article>
 
                     <article class="inicio__card">
-                        <img src="assets/img/inicio-tarapoto.jpg" alt="inicio image" class="inicio__card-img">
+                        <img src="assets/img/home-lake.jpg" alt="inicio image" class="inicio__card-img">
                         <h3 class="inicio__card-title">Lago Tarapoto </h3>
                         <div class="inicio__shadow"></div>
                     </article>
 
                     <article class="inicio__card">
-                        <img src="assets/img/inicio-ptoNarino.jpg" alt="inicio image" class="inicio__card-img">
+                        <img src="assets/img/home-beach.jpg" alt="inicio image" class="inicio__card-img">
                         <h3 class="inicio__card-title">Puerto Nariño </h3>
                         <div class="inicio__shadow"></div>
                     </article>
@@ -120,7 +124,7 @@
 
         <!--========== Nosotros ==========-->
         <section class="nosotros section" id="nosotros">
-            <div class="nosotros__container container">
+            <div class="nosotros__container container grid">
                 <div class="nosotros__data">
                     <h2 class="section__title">
                         Más información  <br>
@@ -137,14 +141,14 @@
                 </div>
 
                 <div class="nosotros__image">
-                    <img src="assets/img/nosotros-img.jpg" alt="nosotros image" class="nosotros__img">
+                    <img src="assets/img/about-beach.jpg" alt="nosotros image" class="nosotros__img">
                     <div class="nosotros__shadow"></div>
                 </div>
             </div>
         </section> 
 
-        <!-- ========== Atractivos ========== -->
-        <section class="atractivos section" id="atractivos">
+        <!-- =============== Atractivos ========== -->
+        <section class="atractivo section" id="atractivos">
             <h2 class="section__title">
                 Disfruta la belleza<br>
                 del Amazonas
@@ -153,7 +157,7 @@
             <div class="atractivo__container container grid">
                 <article class="atractivo__card">
                     <div class="atractivo__image">
-                        <img src="assets/img/inicio-ptoNarino.jpg" alt="atractivo image" class="atractivo__img">
+                        <img src="assets/img/popular-mountain.jpg" alt="atractivo image" class="atractivo__img">
                         <div class="atractivo__shadow"></div>
                     </div>
 
@@ -167,9 +171,9 @@
                     </div>
                 </article>
 
-                <article class="atractivo__card"></article>
+                <article class="atractivo__card">
                     <div class="atractivo__image">
-                        <img src="assets/img/inicio-islaMicos.jpg" alt="atractivo image" class="atractivo__img">
+                        <img src="assets/img/popular-forest.jpg" alt="atractivo image" class="atractivo__img">
                         <div class="atractivo__shadow"></div>
                     </div>
 
@@ -183,9 +187,9 @@
                     </div>
                 </article>
 
-                <article class="atractivo__card"></article>
+                <article class="atractivo__card">
                     <div class="atractivo__image">
-                        <img src="assets/img/inicio-tarapoto.jpg" alt="atractivo image" class="atractivo__img">
+                        <img src="assets/img/popular-lake.jpg" alt="atractivo image" class="atractivo__img">
                         <div class="atractivo__shadow"></div>
                     </div>
 
@@ -202,14 +206,18 @@
         </section> 
 
         <!--========== Paquetes ==========-->
-        <section class="paquetes section" id="paquetes">
-        </section>
+        <!-- <section class="paquetes section" id="paquetes">
+        </section> -->
+
+        <!--========== Vuelos ==========-->
+        <!-- <section class="vuelos section" id="vuelos">
+        </section> -->
 
         <!--========== Explore ==========-->
         <section class="explore section" id="explore">
             <div class="explore__container">
                 <div class="explore__image">
-                    <img src="assets/img/explore-amazonas.jpg" alt="explore image" class="explore__img">
+                    <img src="assets/img/explore-beach.jpg" alt="explore image" class="explore__img">
                     <div class="explore__shadow"></div>
                 </div>
 
@@ -226,7 +234,7 @@
                     </div>
 
                     <div class="explore__user">
-                        <img src="assets/img/explore-perfil.jpg" alt="explore image" class="explore__perfil">
+                        <img src="assets/img/explore-perfil.png" alt="explore image" class="explore__perfil">
                         <span class="explore__name">Elton Nova</span>
                     </div>
                 </div>
@@ -248,14 +256,14 @@
 
                     <form action="" class="join__form">
                         <input type="email" placeholder="Ingresa tu email" class="join__input">
-                        <button class="join__button">
+                        <button class="join__button button">
                             Regístrate en nuestra newsletter<i class="ri-arrow-right-line"></i>
                         </button>
                     </form>
                 </div>
 
                 <div class="join__image">
-                    <img src="assets/img/join-img.jpg" alt="join image" class="join__img">
+                    <img src="assets/img/join-island.jpg" alt="join image" class="join__img">
                     <div class="join__shadow"></div>
                 </div>
             </div>

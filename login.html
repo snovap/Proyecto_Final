@@ -10,35 +10,53 @@
     <!--========== REMIXICONS========-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
     rel="stylesheet"/>
-
-    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="assets/css/styles.css"> 
+    <title>Iniciar Sesión</title>
+    
 </head>
 <body>
     <header>
         <nav class="nav container">
             <div class="nav__menu" id="nav-menu">
-                <a href="index.html" >SPGMETA</a>
+                <a href="index.html" class="nav__logo">SPGMETA</a>
             </div>
+
             <ul class="nav__list">
                 <li class="nav__item"><a href="index.html" class="nav__link">Inicio</a></li>
                 <li class="nav__item"><a href="index.html#nosotros" class="nav__link">Nosotros</a></li>
                 <li class="nav__item"><a href="index.html#atractivos" class="nav__link">Atractivos</a></li>
                 <li class="nav__item"><a href="index.html#paquetes" class="nav__link">Paquetes</a></li>
+                <li class="nav__item"><a href="index.html#vuelos" class="nav__link">Vuelos</a></li>
                 <li class="nav__item"><a href="index.html#explore" class="nav__link">Explore</a></li>
             </ul>
         </nav>
     </header>
-    <main class="login-container"> 
-        <h1>Iniciar Sesión</h1>
-        <form action="/login" method="POST">
-            <label for="email">Correo Electrónico:</label>
-            <input type="email" id="email" name="email" placeholder="Tu correo" required>
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" required>
-            <button type="submit">Iniciar Sesión</button>
-            <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
-        </form>
+    <main class="join section"> 
+        <div class="join__container container grid">
+            <div class="join__data">
+                <h2 class="section__title">
+                    Iniciar Sesión
+                <h2/>
+
+                <form action="/login" method="POST" class="join__form">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Tu correo" class="join__input" required>
+                    <label for="contrasena">Contraseña:</label>
+                    <input type="password" id="contrasena" name="contrasena" placeholder="Tu contraseña" class="join__input" required>
+                    <button type="submit" class="join__button button">
+                        Iniciar Sesión<i class="ri-arrow-right-line"></i>
+                    </button>
+                    <p>¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a></p>
+                </form>
+
+            </div>
+            
+        </div>
+        
+            
+
+        
+        
         
     </main>
 

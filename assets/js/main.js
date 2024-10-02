@@ -43,7 +43,7 @@ window.addEventListener('scroll', blurHeader)
 function scrollUp(){
     const scrollUp = document.getElementById('scroll-up');
     // Cuando el scroll sea superior a 200 de altura de la ventana gráfica, añada la clase show-scroll a la etiqueta a con la clase scroll-top
-    if(this.scrollY >= 200) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
+    if(this.scrollY >= 350) scrollUp.classList.add('show-scroll'); else scrollUp.classList.remove('show-scroll')
 }
 window.addEventListener('scroll', scrollUp)
 
