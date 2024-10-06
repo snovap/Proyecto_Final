@@ -119,24 +119,37 @@
         <div class="container mt-5">
             <h2 class="text-center">Selecciona tu Paquete</h2>
             
-            <form action="reservas.html"  method="POST" class="formulario-generico">
+            <form action="procesar_paquete.php" method="POST" class="formulario-generico">
                 <div class="form-group">
                     <label for="nombre_paquete">Nombre del Paquete:</label>
-                    <input type="text" id="nombre_paquete" name="nombre_paquete" class="form-control" placeholder="Ej. Despertar Amazónico" required>
+                    <select class="form-control" id="nombre_paquete" name="nombre_paquete" required>
+                        <option value="Despertar Amazónico">Despertar Amazónico - $500</option>
+                        <option value="Aventura">Aventura - $600</option>
+                        <option value="Aventura Familiar">Aventura Familiar - $700</option>
+                        <option value="Safari Amazónico">Safari Amazónico - $800</option>
+                    </select>
                 </div>
+                
                 <div class="form-group">
                     <label for="descripcion">Descripción:</label>
                     <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Breve descripción del paquete" required></textarea>
                 </div>
+                
                 <div class="form-group">
                     <label for="precio">Precio:</label>
                     <input type="number" id="precio" name="precio" class="form-control" placeholder="500.00" step="0.01" required>
                 </div>
+                
                 <div class="form-group mt-3">
-                    <button type="submit" class="btn btn-success">Reservar</button>
+                    <!-- Botón para pagar -->
+                    <button type="submit" name="accion" value="pagar" class="btn btn-primary">Pagar</button>
+        
+                    <!-- Botón para reservar -->
+                    <button type="submit" name="accion" value="reservar" class="btn btn-success">Reservar</button>
                 </div>
             </form>
         </div>
+        
         
     
 
