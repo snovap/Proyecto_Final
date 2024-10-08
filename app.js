@@ -18,9 +18,9 @@ conexion.connect(function (err) {
 })
 
 
+// INSERCIÓN DE DATOS
 
 // const insertusuarios = "INSERT INTO usuarios (ID_usuario, nombre, email, contrasena, fecha_registro) VALUES (NULL,'Marley','marleylaflakis@gmail.com','06106404','2024-10-08')";
-
 // conexion.query(insertusuarios, function(error, rows){
 //     if(error){
 //         throw error;
@@ -28,6 +28,9 @@ conexion.connect(function (err) {
 //         console.log("Registro Exitoso");
 //     }
 // });
+
+
+// CONSULTA DE DATOS
 
 const usuarios = "SELECT * FROM usuarios";
 conexion.query(usuarios, function(error,lista){
@@ -42,3 +45,22 @@ conexion.query(usuarios, function(error,lista){
     }
 });
 
+// UPDATE DE DATOS
+// const update = "UPDATE usuarios SET nombre = 'Alejandro' WHERE ID_usuario = 1";
+// conexion.query(update, function(error,lista){
+//     if(error){
+//         throw error;
+//     }else{
+//         console.log("Update Exitoso");
+//     }
+// });
+
+// DELETE DE DATOS
+const delete1 = "DELETE FROM usuarios WHERE ID_usuario = 1";
+conexion.query(delete1, function(error,lista){
+    if(error){
+        throw error;
+    }else{
+        console.log("Delete Exitoso");
+    }
+});

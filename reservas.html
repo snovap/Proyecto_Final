@@ -206,41 +206,48 @@
     </footer>
 
     <script>
+        // Función para actualizar el depósito según el paquete seleccionado
         function actualizarDeposito() {
             const paqueteSelect = document.getElementById('paquete');
             const depositoInput = document.getElementById('deposito');
     
-            const precio = paqueteSelect.options[paqueteSelect.selectedIndex].getAttribute('data-precio');
-            const deposito = precio * 0.5;
+            // Obtenemos el precio del paquete seleccionado
+            const precioPaquete = paqueteSelect.options[paqueteSelect.selectedIndex].getAttribute('data-precio');
+            
+            // Calculamos el depósito (50% del precio)
+            const deposito = precioPaquete / 2;
+            
+            // Asignamos el valor del depósito al campo correspondiente
             depositoInput.value = deposito;
-            localStorage.setItem('paqueteSeleccionado', precio);
         }
     
-        // Asignar el precio cuando se carga la página
-        document.addEventListener('DOMContentLoaded', function() {
-            actualizarDeposito();
-        });
-
+        // Función para cargar el paquete seleccionado desde localStorage
         function cargarPaqueteSeleccionado() {
             const paqueteSeleccionado = localStorage.getItem('paqueteSeleccionado');
             const selectPaquete = document.getElementById('paquete');
-
+    
             if (paqueteSeleccionado) {
                 for (let i = 0; i < selectPaquete.options.length; i++) {
                     if (selectPaquete.options[i].value === paqueteSeleccionado) {
                         selectPaquete.selectedIndex = i;
-                        actualizarDeposito(); // Actualizamos el depósito según el paquete seleccionado
+                        actualizarDeposito();  // Actualizamos el depósito según el paquete seleccionado
                         break;
                     }
                 }
             }
         }
-
+    
         // Ejecutar al cargar la página
         document.addEventListener('DOMContentLoaded', function() {
-        cargarPaqueteSeleccionado();
+            cargarPaqueteSeleccionado();  // Cargamos el paquete guardado en localStorage
+            actualizarDeposito();  // Calculamos el depósito al cargar la página
+    
+            // Actualizamos el depósito cada vez que el usuario selecciona un nuevo paquete
+            const paqueteSelect = document.getElementById('paquete');
+            paqueteSelect.addEventListener('change', actualizarDeposito);
         });
     </script>
+    
 
 </body>
 </html>

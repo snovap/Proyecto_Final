@@ -41,28 +41,47 @@
             <div class="join__data">
                 <h2 class="section__title">Buscar Vuelos</h2>
 
-                <form action="resultados_vuelos.php" method="POST" class="join__form">
+                <form action="resultados_vuelos.php" method="POST" class="formulario-generico">
                     <div class="form-group">
-                        <label for="origen">Origen:</label>
-                        <input type="text" id="origen" name="origen" class="join__input" required>
+                        <label for="aerolinea">Aerolínea:</label>
+                        <input type="text" id="aerolinea" name="aerolinea" class="formulario-generico__input" required>
                     </div>
         
                     <div class="form-group mt-3">
-                        <label for="destino">Destino:</label>
-                        <input type="text" id="destino" name="destino" class="join__input" required>
+                        <label for="numero_vuelo">Número de Vuelo:</label>
+                        <input type="text" id="numero_vuelo" name="numero_vuelo" class="formulario-generico__input" required>
                     </div>
         
                     <div class="form-group mt-3">
-                        <label for="fecha_ida">Fecha de Ida:</label>
-                        <input type="date" id="fecha_ida" name="fecha_ida" class="join__input" required>
+                        <label for="hora_salida">Hora de Salida:</label>
+                        <input type="time" id="hora_salida" name="hora_salida" class="formulario-generico__input" required>
                     </div>
         
                     <div class="form-group mt-3">
-                        <label for="fecha_regreso">Fecha de Regreso:</label>
-                        <input type="date" id="fecha_regreso" name="fecha_regreso" class="join__input">
+                        <label for="hora_llegada">Hora de Llegada:</label>
+                        <input type="time" id="hora_llegada" name="hora_llegada" class="formulario-generico__input" required>
                     </div>
         
-                    <button type="submit" class="join__button button">
+                    <div class="form-group mt-3">
+                        <label for="fecha_vuelo">Fecha de Vuelo:</label>
+                        <input type="date" id="fecha_vuelo" name="fecha_vuelo" class="formulario-generico__input" required>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="clase">Clase:</label>
+                        <select id="clase" name="clase" class="formulario-generico__input" required>
+                            <option value="Economica">Económica</option>
+                            <option value="Ejecutiva">Ejecutiva</option>
+                            <option value="Primera">Primera</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group mt-3">
+                        <label for="precio_vuelo">Precio del Vuelo:</label>
+                        <input type="number" id="precio_vuelo" name="precio_vuelo" class="formulario-generico__input" required>
+                    </div>
+
+                    <button type="submit" class="formulario-generico__boton">
                         Buscar<i class="ri-arrow-right-line"></i>
                     </button>
                 </form>

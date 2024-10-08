@@ -228,6 +228,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
+        // Función para actualizar la descripción del paquete seleccionado
         function actualizarFormulario() {
             const selectPaquete = document.getElementById('nombre_paquete');
             const descripcion = document.getElementById('descripcion');
@@ -236,46 +237,46 @@
             descripcion.value = descripcionPaquete;
         }
     
-        // function actualizarPrecio(accion) {
-        //     const selectPaquete = document.getElementById('nombre_paquete');
-        //     const precio = document.getElementById('precio');
-        //     const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
-        //     const precioPaquete = selectedOption.getAttribute('data-precio');
-        //     let precioFinal;
+        // Función para actualizar el precio en función del paquete seleccionado
+        function actualizarPrecioSegunPaquete() {
+            const selectPaquete = document.getElementById('nombre_paquete');
+            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+            const precioPaquete = selectedOption.getAttribute('data-precio');
     
-        //     if (accion === 'reservar') {
-        //         precioFinal = precioPaquete / 2;
-        //         mostrarConfirmacion('reservar');
-        //     } else if (accion === 'pagar') {
-        //         precioFinal = precioPaquete;
-        //         // Guardamos el precio del paquete seleccionado en localStorage
-        //         localStorage.setItem('paqueteSeleccionado', precioFinal);
-        //         mostrarConfirmacion('pagar');
-        //     }
-        //     precio.value = "$" + precioFinal;
-        // }
-
+            // Actualizamos el campo de precio con el valor del paquete seleccionado
+            const precio = document.getElementById('precio');
+            precio.value = "$" + precioPaquete;
+        }
+    
+        // Función para actualizar el precio según la acción ('reservar' o 'pagar')
         function actualizarPrecio(accion) {
             const selectPaquete = document.getElementById('nombre_paquete');
             const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
             const precioPaquete = selectedOption.getAttribute('data-precio');
             const nombrePaquete = selectedOption.value;
             let precioFinal;
-
+    
+            // Si la acción es "reservar", el precio es la mitad (50%)
             if (accion === 'reservar') {
                 precioFinal = precioPaquete / 2;
-                localStorage.setItem('paqueteSeleccionado', nombrePaquete); // Guardamos el paquete seleccionado en localStorage
+                // Guardar paquete y precio en localStorage
+                localStorage.setItem('paqueteSeleccionado', nombrePaquete);
+                localStorage.setItem('precioSeleccionado', precioFinal);
                 mostrarConfirmacion('reservar');
             } else if (accion === 'pagar') {
+                // Si la acción es "pagar", el precio es completo
                 precioFinal = precioPaquete;
-                localStorage.setItem('paqueteSeleccionado', nombrePaquete); // Guardamos el paquete seleccionado en localStorage
-                localStorage.setItem('precioPaquete', precioPaquete); // Guardamos el precio del paquete seleccionado en localStorage
+                // Guardar paquete y precio en localStorage
+                localStorage.setItem('paqueteSeleccionado', nombrePaquete);
+                localStorage.setItem('precioSeleccionado', precioFinal);
                 mostrarConfirmacion('pagar');
             }
+    
             const precio = document.getElementById('precio');
             precio.value = "$" + precioFinal;
         }
     
+        // Función para mostrar una confirmación antes de redirigir
         function mostrarConfirmacion(accion) {
             let mensaje = '';
             let redireccion = '';
@@ -291,7 +292,8 @@
                 window.location.href = redireccion;
             }
         }
-
+    
+        // Función para validar que el usuario seleccione un paquete
         function validarFormulario() {
             const selectPaquete = document.getElementById('nombre_paquete');
             if (!selectPaquete.value) {
@@ -300,16 +302,26 @@
             }
             return true;
         }
-        
     
+        // Función que se ejecuta cuando se carga la página
         window.onload = function() {
+            // Inicializar formulario
             actualizarFormulario();
+    
+            // Actualizar el precio del paquete por defecto
+            actualizarPrecioSegunPaquete();
+    
             const selectPaquete = document.getElementById('nombre_paquete');
-            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
-            const precio = document.getElementById('precio');
-            precio.value = "$" + selectedOption.getAttribute('data-precio');
+            
+            // Agregar evento para actualizar el precio cuando cambie el paquete seleccionado
+            selectPaquete.addEventListener('change', function() {
+                actualizarFormulario(); // Actualizar la descripción
+                actualizarPrecioSegunPaquete(); // Actualizar el precio al cambiar de paquete
+            });
         };
     </script>
+    
+    
    
 </body>
 </html>
