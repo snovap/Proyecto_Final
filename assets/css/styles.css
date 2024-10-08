@@ -996,14 +996,47 @@ img{
 }
 
 .formulario-generico .btn-success {
+    /* background-color: #28a745;
+    color: white;
+    font-weight: bold; */
     background-color: #28a745;
     color: white;
     font-weight: bold;
+    padding: 10px;
+    width: 48%;
+    margin-right: 2%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-generico__boton.btn-warning {
+    background-color: #ffc107;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    width: 48%;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.formulario-generico__boton.btn-success:hover {
+    background-color: #218838;
+}
+
+.formulario-generico__boton.btn-warning:hover {
+    background-color: #e0a800;
 }
 
 .formulario-generico h3 {
     text-align: center;
     margin-bottom: 20px;
+
+    /*modificacion*/
+    font-size: 24px;            /* Aumenta el tamaño de la fuente */
+    color: #333;                /* Color más oscuro */
+    font-weight: bold;          /* Negrita para mayor énfasis */
+    text-transform: uppercase;  /* Texto en mayúsculas */
+    letter-spacing: 1px;        /* Espaciado entre letras */
 }
 
 
@@ -1111,44 +1144,7 @@ img{
     gap: 20px;
 }
 
-/* .paquetes-carousel::before, .paquetes-carousel::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 24px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transform: translateY(-50%);
-}
 
-.paquetes-carousel::before {
-    left: 10px;
-    content: '<'; /* Flecha izquierda */
-/*}*/
-
-/* .paquetes-carousel::after {
-    right: 10px;
-    content: '>'; /* Flecha derecha */
-/*} */ 
-
-/* Desplazamiento automático */
-/* @keyframes slide {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    100% { transform: translateX(0); }
-} */
-
-/* .paquetes-carousel {
-    animation: slide 20s infinite;
-} */
 
 
 
@@ -1176,3 +1172,5 @@ img{
         margin-bottom: 10px;
     }
 } 
+
+

@@ -45,32 +45,33 @@
         </div>
         
 
-        <form action="" method="POST" class="join__form"> <!-- tener en cuenta a donde redirijo-->
+        <form action="procesar_pago.php" method="POST" class="formulario-generico">
+            <h3>Realiza tu pago</h3>
+            <input type="hidden" id="id_reserva" name="id_reserva" value="">
+        
             <div class="form-group">
                 <label for="monto">Monto a Pagar:</label>
-                <input type="text" id="monto" name="monto" class="join__input" readonly value="500">
+                <input type="text" id="monto" name="monto" class="formulario-generico__input" readonly>
             </div>
-
-            <div class="form-group mt-3">
+        
+            <div class="form-group">
                 <label for="metodo">Método de Pago:</label>
-                <select class="form-control" id="metodo" name="metodo_pago">
+                <select class="formulario-generico__input" id="metodo" name="metodo_pago">
                     <option value="Tarjeta">Tarjeta</option>
                     <option value="Transferencia">Transferencia</option>
                     <option value="PayPal">PayPal</option>
                     <option value="Efectivo">Efectivo</option>
                 </select>
             </div>
-
-            <button type="submit" class="join__button button">Pagar</button>
+        
+            <button type="submit" class="formulario-generico__boton">Pagar</button>
         </form>
-
-        <!-- <div id="mensaje-pago" class="alert alert-success mt-5 d-none" role="alert">
-            ¡El pago se ha realizado con éxito!
-        </div> --> <!-- alerta de pago exitoso en una función en js que muestre el alerta al darle clic a pagar pero en js-->
-    </div>
+        
+      
+        
 
    <!--============ FOOTER ==========-->
-   <footer class="footer" id="footer">
+    <footer class="footer" id="footer">
     <div class="footer__container container grid">
         <div class="footer__content grid">
             <div>
@@ -180,10 +181,28 @@
                 </span>
 
 
-              </div>
+                
+            </div>
         </div>
     </div>
-</footer>
+    </footer>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const montoInput = document.getElementById('monto');
+        const idReservaInput = document.getElementById('id_reserva');
+
+        const paquetePrecio = localStorage.getItem('paqueteSeleccionado');
+        const idReserva = localStorage.getItem('idReservaSeleccionada'); // Asumiendo que esto se guarda en algún punto
+
+        // Mostramos el precio en el campo "Monto a Pagar"
+        montoInput.value = paquetePrecio ? `$${paquetePrecio}` : "$0";
+
+        // montoInput.value = paquetePrecio;
+        idReservaInput.value = idReserva; // El ID de la reserva debería estar almacenado
+    });
+
+    
+</script>
 </body>
 </html>

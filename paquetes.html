@@ -39,7 +39,7 @@
 
     <div class="container mt-5">
         <h1 class="text-center">Paquetes Turísticos</h1>
-    
+
         <!-- Carrusel de Paquetes -->
         <div class="paquetes-carousel">
             <!-- Paquete 1 -->
@@ -48,112 +48,69 @@
                     <h5 class="card-title">Despertar Amazónico</h5>
                     <p class="card-text">5 días, 4 noches</p>
                     <p class="card-text">Precio: $500</p>
-                    <a href="#" class="btn btn-warning">Quiero ir</a>
                 </div>
             </div>
-    
+
             <!-- Paquete 2 -->
             <div class="paquete-card">
                 <div class="card-body">
                     <h5 class="card-title">Aventura</h5>
                     <p class="card-text">3 días, 2 noches</p>
                     <p class="card-text">Precio: $600</p>
-                    <a href="#" class="btn btn-warning">Quiero ir</a>
                 </div>
             </div>
-    
+
             <!-- Paquete 3 -->
             <div class="paquete-card">
                 <div class="card-body">
                     <h5 class="card-title">Aventura Familiar</h5>
                     <p class="card-text">4 días, 3 noches</p>
                     <p class="card-text">Precio: $700</p>
-                    <a href="#" class="btn btn-warning">Quiero ir</a>
                 </div>
             </div>
-    
+
             <!-- Paquete 4 -->
             <div class="paquete-card">
                 <div class="card-body">
                     <h5 class="card-title">Safari Amazónico</h5>
                     <p class="card-text">4 días, 3 noches</p>
                     <p class="card-text">Precio: $800</p>
-                    <a href="#" class="btn btn-warning">Quiero ir</a>
                 </div>
             </div>
         </div>
     </div>
-    
-    
 
-        <!-- Formulario para seleccionar paquete -->
-        <!-- <div class="join section">
-            <div class="join__container container grid">
-                <div class="join__data">
-                    <h2 class="section__title">
-                        Selecciona tu Paquete
-                    </h2>
+    <div class="container mt-5">
+        <h2 class="text-center">Selecciona tu Paquete</h2>
+        <form id="paqueteForm" action="procesar_paquete.php" method="POST" class="formulario-generico">
+            <div class="form-group">
+                <label for="nombre_paquete">Nombre del Paquete:</label>
+                <select class="form-control" id="nombre_paquete" name="nombre_paquete" required onchange="actualizarFormulario()">
+                    <option value="Despertar Amazónico" data-precio="500" data-descripcion="5 días, 4 noches">Despertar Amazónico - $500</option>
+                    <option value="Aventura" data-precio="600" data-descripcion="3 días, 2 noches">Aventura - $600</option>
+                    <option value="Aventura Familiar" data-precio="700" data-descripcion="4 días, 3 noches">Aventura Familiar - $700</option>
+                    <option value="Safari Amazónico" data-precio="800" data-descripcion="4 días, 3 noches">Safari Amazónico - $800</option>
+                </select>
+            </div>
 
-                    <form action="reservas.html" action="pagos.html" method="POST" class="join__form">
-                        <div class="form-group">
-                            <label for="paquete">Paquete Seleccionado:</label>
-                            <select class="form-control" id="paquete" name="paquete">
-                                <option value="1">Paquete 1 - $500</option>
-                                <option value="2">Paquete 2 - $600</option>
-                                <option value="3">Paquete 3 - $700</option>
-                            </select>
-                        </div>
-                        <div class="form-group mt-3">
-                            <button type="submit" name="accion" value="pagar" class="join__button button" >
-                                <a href="pagos.html">Pagar</a>
-                            </button>
-                            <button type="submit" name="accion" value="reservar" class="join__button button">
-                                <a href="reservas.html">Reservar</a>
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>   
-        </div> -->
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Breve descripción del paquete" readonly></textarea>
+            </div>
 
-        <div class="container mt-5">
-            <h2 class="text-center">Selecciona tu Paquete</h2>
-            
-            <form action="procesar_paquete.php" method="POST" class="formulario-generico">
-                <div class="form-group">
-                    <label for="nombre_paquete">Nombre del Paquete:</label>
-                    <select class="form-control" id="nombre_paquete" name="nombre_paquete" required>
-                        <option value="Despertar Amazónico">Despertar Amazónico - $500</option>
-                        <option value="Aventura">Aventura - $600</option>
-                        <option value="Aventura Familiar">Aventura Familiar - $700</option>
-                        <option value="Safari Amazónico">Safari Amazónico - $800</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="descripcion">Descripción:</label>
-                    <textarea id="descripcion" name="descripcion" class="form-control" placeholder="Breve descripción del paquete" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="precio">Precio:</label>
-                    <input type="number" id="precio" name="precio" class="form-control" placeholder="500.00" step="0.01" required>
-                </div>
-                
-                <div class="form-group mt-3">
-                    <!-- Botón para pagar -->
-                    <button type="submit" name="accion" value="pagar" class="btn btn-primary">Pagar</button>
-        
-                    <!-- Botón para reservar -->
-                    <button type="submit" name="accion" value="reservar" class="btn btn-success">Reservar</button>
-                </div>
-            </form>
-        </div>
-        
-        
-    
+            <div class="form-group">
+                <label for="precio">Precio (USD):</label>
+                <input type="text" id="precio" name="precio" class="form-control" readonly>
+            </div>
 
-    
+            <div class="form-group mt-3">
+                <button type="button" class="formulario-generico__boton btn-warning" onclick="actualizarPrecio('reservar')">Reservar</button>
+                <button type="button" class="formulario-generico__boton btn-success" onclick="actualizarPrecio('pagar')">Pagar</button>
+            </div>
+        </form>
+    </div>
+
+   
     <!--============ FOOTER ==========-->
     <footer class="footer" id="footer">
         <div class="footer__container container grid">
@@ -269,5 +226,90 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        function actualizarFormulario() {
+            const selectPaquete = document.getElementById('nombre_paquete');
+            const descripcion = document.getElementById('descripcion');
+            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+            const descripcionPaquete = selectedOption.getAttribute('data-descripcion');
+            descripcion.value = descripcionPaquete;
+        }
+    
+        // function actualizarPrecio(accion) {
+        //     const selectPaquete = document.getElementById('nombre_paquete');
+        //     const precio = document.getElementById('precio');
+        //     const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+        //     const precioPaquete = selectedOption.getAttribute('data-precio');
+        //     let precioFinal;
+    
+        //     if (accion === 'reservar') {
+        //         precioFinal = precioPaquete / 2;
+        //         mostrarConfirmacion('reservar');
+        //     } else if (accion === 'pagar') {
+        //         precioFinal = precioPaquete;
+        //         // Guardamos el precio del paquete seleccionado en localStorage
+        //         localStorage.setItem('paqueteSeleccionado', precioFinal);
+        //         mostrarConfirmacion('pagar');
+        //     }
+        //     precio.value = "$" + precioFinal;
+        // }
+
+        function actualizarPrecio(accion) {
+            const selectPaquete = document.getElementById('nombre_paquete');
+            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+            const precioPaquete = selectedOption.getAttribute('data-precio');
+            const nombrePaquete = selectedOption.value;
+            let precioFinal;
+
+            if (accion === 'reservar') {
+                precioFinal = precioPaquete / 2;
+                localStorage.setItem('paqueteSeleccionado', nombrePaquete); // Guardamos el paquete seleccionado en localStorage
+                mostrarConfirmacion('reservar');
+            } else if (accion === 'pagar') {
+                precioFinal = precioPaquete;
+                localStorage.setItem('paqueteSeleccionado', nombrePaquete); // Guardamos el paquete seleccionado en localStorage
+                localStorage.setItem('precioPaquete', precioPaquete); // Guardamos el precio del paquete seleccionado en localStorage
+                mostrarConfirmacion('pagar');
+            }
+            const precio = document.getElementById('precio');
+            precio.value = "$" + precioFinal;
+        }
+    
+        function mostrarConfirmacion(accion) {
+            let mensaje = '';
+            let redireccion = '';
+            if (accion === 'reservar') {
+                mensaje = '¿Deseas proceder con la reserva?';
+                redireccion = 'reservas.html';
+            } else if (accion === 'pagar') {
+                mensaje = '¿Deseas proceder con el pago completo?';
+                redireccion = 'pagos.html';
+            }
+    
+            if (confirm(mensaje)) {
+                window.location.href = redireccion;
+            }
+        }
+
+        function validarFormulario() {
+            const selectPaquete = document.getElementById('nombre_paquete');
+            if (!selectPaquete.value) {
+                alert('Por favor selecciona un paquete.');
+                return false;
+            }
+            return true;
+        }
+        
+    
+        window.onload = function() {
+            actualizarFormulario();
+            const selectPaquete = document.getElementById('nombre_paquete');
+            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+            const precio = document.getElementById('precio');
+            precio.value = "$" + selectedOption.getAttribute('data-precio');
+        };
+    </script>
+   
 </body>
 </html>
