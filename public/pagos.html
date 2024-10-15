@@ -39,21 +39,18 @@
                 <h2 class="section__title">
                     Realizar Pago
                 </h2>
-
-
             </div>
         </div>
         
-
         <form action="/pagar" method="POST" class="formulario-generico">
             <h3>Realiza tu pago</h3>
-            <input type="hidden" id="id_reserva" name="id_reserva" value="">
-        
+            <input type="hidden" id="id_paquete" name="ID_paquete" value="">
+            
             <div class="form-group">
                 <label for="monto">Monto a Pagar:</label>
                 <input type="text" id="monto" name="monto" class="formulario-generico__input" readonly>
             </div>
-        
+            
             <div class="form-group">
                 <label for="metodo">Método de Pago:</label>
                 <select class="formulario-generico__input" id="metodo" name="metodo_pago">
@@ -63,7 +60,7 @@
                     <option value="Efectivo">Efectivo</option>
                 </select>
             </div>
-        
+            
             <button type="submit" class="formulario-generico__boton">Pagar</button>
         </form>
     </div>
@@ -180,21 +177,31 @@
         </div>
     </div>
     </footer>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const montoInput = document.getElementById('monto');
-            const idReservaInput = document.getElementById('id_reserva');
-
+            const idPaqueteInput = document.getElementById('id_paquete');
+    
+            // Recuperar el precio y el ID del paquete desde localStorage
             const paquetePrecio = localStorage.getItem('precioSeleccionado');
-            const idReserva = localStorage.getItem('idReservaSeleccionada'); // Asumiendo que esto se guarda en algún punto
-
-            // Mostramos el precio en el campo "Monto a Pagar"
-            montoInput.value = paquetePrecio ? `$${paquetePrecio}` : "$0";
-
-            // montoInput.value = paquetePrecio;
-            idReservaInput.value = idReserva; // El ID de la reserva debería estar almacenado
+            const idPaquete = localStorage.getItem('paqueteSeleccionado');
+    
+            // Verificar que se han recuperado valores válidos
+            if (!paquetePrecio || !idPaquete) {
+                alert("No se han encontrado datos del paquete seleccionado. Por favor, selecciona un paquete.");
+                return;
+            }
+    
+            // Mostrar el precio en el campo "Monto a Pagar"
+            montoInput.value = paquetePrecio; // Se asume que ya viene sin el símbolo de dólar
+    
+            // Asignar el ID del paquete al campo oculto
+            idPaqueteInput.value = idPaquete;
         });
     </script>
+    
+    
+    
+    
 </body>
 </html>

@@ -85,11 +85,11 @@
         <form id="paqueteForm" action="/paquetes" method="POST" class="formulario-generico">
             <div class="form-group">
                 <label for="nombre_paquete">Nombre del Paquete:</label>
-                <select class="form-control" id="nombre_paquete" name="nombre_paquete" required onchange="actualizarFormulario()">
-                    <option value="Despertar Amazónico" data-precio="500" data-descripcion="5 días, 4 noches">Despertar Amazónico - $500</option>
-                    <option value="Aventura" data-precio="600" data-descripcion="3 días, 2 noches">Aventura - $600</option>
-                    <option value="Aventura Familiar" data-precio="700" data-descripcion="4 días, 3 noches">Aventura Familiar - $700</option>
-                    <option value="Safari Amazónico" data-precio="800" data-descripcion="4 días, 3 noches">Safari Amazónico - $800</option>
+                <select class="form-control" id="nombre_paquete" name="ID_paquete" required onchange="actualizarFormulario()">
+                    <option value="1" data-precio="500" data-descripcion="5 días, 4 noches">Despertar Amazónico - $500</option>
+                    <option value="2" data-precio="600" data-descripcion="3 días, 2 noches">Aventura - $600</option>
+                    <option value="3" data-precio="700" data-descripcion="4 días, 3 noches">Aventura Familiar - $700</option>
+                    <option value="4" data-precio="800" data-descripcion="4 días, 3 noches">Safari Amazónico - $800</option>
                 </select>
             </div>
 
@@ -104,9 +104,10 @@
             </div>
 
             <div class="form-group mt-3">
-                <button type="button" class="formulario-generico__boton btn-warning" onclick="actualizarPrecio('reservar')">Reservar</button>
-                <button type="button" class="formulario-generico__boton btn-success" onclick="actualizarPrecio('pagar')">Pagar</button>
+                <button type="submit" class="formulario-generico__boton btn-warning" name="accion" value="reservar">Reservar</button>
+                <button type="submit" class="formulario-generico__boton btn-success" name="accion" value="pagar">Pagar</button>
             </div>
+            
         </form>
     </div>
 
@@ -228,7 +229,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        // Función para actualizar la descripción del paquete seleccionado
+        // Función para actualizar la descripción y el precio del paquete seleccionado
         function actualizarFormulario() {
             const selectPaquete = document.getElementById('nombre_paquete');
             const descripcion = document.getElementById('descripcion');
@@ -238,45 +239,31 @@
         }
     
         // Función para actualizar el precio en función del paquete seleccionado
-        function actualizarPrecioSegunPaquete() {
+        function actualizarPrecio() {
             const selectPaquete = document.getElementById('nombre_paquete');
             const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
             const precioPaquete = selectedOption.getAttribute('data-precio');
     
             // Actualizamos el campo de precio con el valor del paquete seleccionado
             const precio = document.getElementById('precio');
-            precio.value = "$" + precioPaquete;
+            precio.value = precioPaquete;
         }
     
-        // Función para actualizar el precio según la acción ('reservar' o 'pagar')
-        function actualizarPrecio(accion) {
+        // Función para guardar los datos del paquete en localStorage
+        function guardarDatosEnLocalStorage(accion) {
             const selectPaquete = document.getElementById('nombre_paquete');
             const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
-            const precioPaquete = selectedOption.getAttribute('data-precio');
-            const nombrePaquete = selectedOption.value;
-            let precioFinal;
+            const paqueteID = selectedOption.value;  // ID del paquete
+            const precioPaquete = selectedOption.getAttribute('data-precio'); // Precio del paquete
     
-            // Si la acción es "reservar", el precio es la mitad (50%)
-            if (accion === 'reservar') {
-                precioFinal = precioPaquete / 2;
-                // Guardar paquete y precio en localStorage
-                localStorage.setItem('paqueteSeleccionado', nombrePaquete);
-                localStorage.setItem('precioSeleccionado', precioFinal);
-                mostrarConfirmacion('reservar');
-            } else if (accion === 'pagar') {
-                // Si la acción es "pagar", el precio es completo
-                precioFinal = precioPaquete;
-                // Guardar paquete y precio en localStorage
-                localStorage.setItem('paqueteSeleccionado', nombrePaquete);
-                localStorage.setItem('precioSeleccionado', precioFinal);
-                mostrarConfirmacion('pagar');
-            }
+            // Guardamos el precio y el ID en localStorage
+            localStorage.setItem('paqueteSeleccionado', paqueteID);
+            localStorage.setItem('precioSeleccionado', precioPaquete);
     
-            const precio = document.getElementById('precio');
-            precio.value = "$" + precioFinal;
+            // Confirmar antes de redirigir
+            mostrarConfirmacion(accion);
         }
     
-        // Función para mostrar una confirmación antes de redirigir
         function mostrarConfirmacion(accion) {
             let mensaje = '';
             let redireccion = '';
@@ -293,32 +280,28 @@
             }
         }
     
-        // Función para validar que el usuario seleccione un paquete
-        function validarFormulario() {
-            const selectPaquete = document.getElementById('nombre_paquete');
-            if (!selectPaquete.value) {
-                alert('Por favor selecciona un paquete.');
-                return false;
-            }
-            return true;
-        }
-    
-        // Función que se ejecuta cuando se carga la página
+        // Inicializar el formulario con el paquete por defecto seleccionado
         window.onload = function() {
-            // Inicializar formulario
             actualizarFormulario();
-    
-            // Actualizar el precio del paquete por defecto
-            actualizarPrecioSegunPaquete();
-    
-            const selectPaquete = document.getElementById('nombre_paquete');
-            
-            // Agregar evento para actualizar el precio cuando cambie el paquete seleccionado
-            selectPaquete.addEventListener('change', function() {
-                actualizarFormulario(); // Actualizar la descripción
-                actualizarPrecioSegunPaquete(); // Actualizar el precio al cambiar de paquete
-            });
+            actualizarPrecio(); // Aseguramos que el precio se establezca al cargar la página
         };
-    </script>  
+    
+        // Agregar eventos para el formulario
+        document.getElementById('nombre_paquete').addEventListener('change', function() {
+            actualizarFormulario();
+            actualizarPrecio();
+        });
+    
+        // Enviar el formulario con la acción adecuada
+        document.querySelector('button[name="accion"][value="pagar"]').onclick = function() {
+            guardarDatosEnLocalStorage('pagar');
+        };
+    
+        document.querySelector('button[name="accion"][value="reservar"]').onclick = function() {
+            guardarDatosEnLocalStorage('reservar');
+        };
+    </script>
+    
+    
 </body>
 </html>

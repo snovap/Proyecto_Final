@@ -27,13 +27,14 @@
                 <li class="nav__item"><a href="index.html#paquetes" class="nav__link">Paquetes</a></li>
                 <li class="nav__item"><a href="index.html#vuelos" class="nav__link">Vuelos</a></li>
                 <li class="nav__item"><a href="index.html#explore" class="nav__link">Explore</a></li>
+                <li class="nav__item"><a href="mis_reservas.html" class="nav__link">Mis Reservas</a></li>
             </ul>
         </nav>
     </header>
 
-    <form action="/reservar" method="POST" class="formulario-generico">
+    <form id="form-reserva" action="/reservar" method="POST" class="formulario-generico">
         <h3>Reserva tu viaje</h3>
-        
+    
         <!-- Campo de Origen -->
         <div class="form-group">
             <label for="origen">Origen:</label>
@@ -49,11 +50,11 @@
         <!-- Campo de Selección de Paquete -->
         <div class="form-group">
             <label for="paquete">Seleccionar Paquete:</label>
-            <select id="paquete" name="paquete" class="formulario-generico__input" required onchange="actualizarDeposito()">
-                <option value="Despertar Amazónico" data-precio="500" data-descripcion="5 días, 4 noches">Despertar Amazónico - $500</option>
-                <option value="Aventura" data-precio="600" data-descripcion="3 días, 2 noches">Aventura - $600</option>
-                <option value="Aventura Familiar" data-precio="700" data-descripcion="4 días, 3 noches">Aventura Familiar - $700</option>
-                <option value="Safari Amazónico" data-precio="800" data-descripcion="4 días, 3 noches">Safari Amazónico - $800</option>
+            <select id="paquete" name="ID_paquete" class="formulario-generico__input" required onchange="actualizarDeposito()">
+                <option value="1" data-precio="500">Despertar Amazónico - $500</option>
+                <option value="2" data-precio="600">Aventura - $600</option>
+                <option value="3" data-precio="700">Aventura Familiar - $700</option>
+                <option value="4" data-precio="800">Safari Amazónico - $800</option>
             </select>
         </div>
     
@@ -90,6 +91,8 @@
         <!-- Botón de Reservar -->
         <button type="submit" class="formulario-generico__boton">Reservar</button>
     </form>
+    
+    
 
     <!--============ FOOTER ==========-->
     <footer class="footer" id="footer">
@@ -208,20 +211,14 @@
     <script>
         // Función para actualizar el depósito según el paquete seleccionado
         function actualizarDeposito() {
-            const paqueteSelect = document.getElementById('paquete');
-            const depositoInput = document.getElementById('deposito');
-    
-            // Obtenemos el precio del paquete seleccionado
-            const precioPaquete = paqueteSelect.options[paqueteSelect.selectedIndex].getAttribute('data-precio');
-            
-            // Calculamos el depósito (50% del precio)
-            const deposito = precioPaquete / 2;
-            
-            // Asignamos el valor del depósito al campo correspondiente
-            depositoInput.value = deposito;
+            const selectPaquete = document.getElementById('paquete');
+            const selectedOption = selectPaquete.options[selectPaquete.selectedIndex];
+            const precioPaquete = selectedOption.getAttribute('data-precio');
+            const deposito = precioPaquete / 2;  // Depósito es el 50% del precio del paquete
+            document.getElementById('deposito').value = deposito;
         }
     
-        // Función para cargar el paquete seleccionado desde localStorage
+        // Función para cargar el paquete seleccionado y el precio desde localStorage
         function cargarPaqueteSeleccionado() {
             const paqueteSeleccionado = localStorage.getItem('paqueteSeleccionado');
             const selectPaquete = document.getElementById('paquete');
@@ -230,24 +227,76 @@
                 for (let i = 0; i < selectPaquete.options.length; i++) {
                     if (selectPaquete.options[i].value === paqueteSeleccionado) {
                         selectPaquete.selectedIndex = i;
-                        actualizarDeposito();  // Actualizamos el depósito según el paquete seleccionado
+                        actualizarDeposito();  // Actualizar el depósito según el paquete seleccionado
                         break;
                     }
                 }
             }
         }
     
-        // Ejecutar al cargar la página
-        document.addEventListener('DOMContentLoaded', function() {
-            cargarPaqueteSeleccionado();  // Cargamos el paquete guardado en localStorage
-            actualizarDeposito();  // Calculamos el depósito al cargar la página
+        // Función para enviar el formulario con los datos de la reserva
+        function enviarFormularioReserva() {
+            // Obtenemos los datos del formulario
+            const origen = document.getElementById('origen').value;
+            const destino = document.getElementById('destino').value;
+            const fechaIda = document.getElementById('fecha_ida').value;
+            const fechaRegreso = document.getElementById('fecha_regreso').value;
+            const numeroPasajeros = document.getElementById('numero_pasajeros').value;
+            const tarjetaTurismo = document.getElementById('tarjeta_turismo').checked ? 1 : 0;
+            const deposito = document.getElementById('deposito').value;
+            const paqueteID = document.getElementById('paquete').value;
     
-            // Actualizamos el depósito cada vez que el usuario selecciona un nuevo paquete
-            const paqueteSelect = document.getElementById('paquete');
-            paqueteSelect.addEventListener('change', actualizarDeposito);
-        });
+            // Validar que los campos requeridos no estén vacíos
+            if (!origen || !destino || !fechaIda || !fechaRegreso || !numeroPasajeros || !deposito || !paqueteID) {
+                alert('Por favor, complete todos los campos obligatorios.');
+                return;
+            }
+    
+            // Crear un formulario oculto para enviar los datos
+            const form = document.createElement('form');
+            form.action = '/reservar';  // La ruta del backend para reservas
+            form.method = 'POST';
+    
+            // Añadir campos ocultos con los valores del formulario
+            const agregarCampoOculto = (name, value) => {
+                const input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = name;
+                input.value = value;
+                form.appendChild(input);
+            };
+    
+            // Campos a enviar
+            agregarCampoOculto('origen', origen);
+            agregarCampoOculto('destino', destino);
+            agregarCampoOculto('fecha_ida', fechaIda);
+            agregarCampoOculto('fecha_regreso', fechaRegreso);
+            agregarCampoOculto('numero_pasajeros', numeroPasajeros);
+            agregarCampoOculto('tarjeta_turismo', tarjetaTurismo);
+            agregarCampoOculto('deposito', deposito);
+            agregarCampoOculto('ID_paquete', paqueteID);
+    
+            // Adjuntar el formulario al cuerpo y enviarlo
+            document.body.appendChild(form);
+            form.submit();
+        }
+    
+        // Función para inicializar y manejar el formulario
+        window.onload = function() {
+            cargarPaqueteSeleccionado(); // Cargar el paquete guardado en localStorage
+            actualizarDeposito(); // Inicializar el depósito al cargar la página
+    
+            // Actualizar el depósito cuando se seleccione un nuevo paquete
+            const selectPaquete = document.getElementById('paquete');
+            selectPaquete.addEventListener('change', actualizarDeposito);
+    
+            // Manejamos el evento de envío del formulario
+            document.getElementById('form-reserva').addEventListener('submit', function(event) {
+                event.preventDefault();  // Evitar el envío estándar
+                enviarFormularioReserva();  // Enviar los datos
+            });
+        };
     </script>
     
-
 </body>
 </html>

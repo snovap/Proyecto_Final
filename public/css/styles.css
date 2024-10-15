@@ -907,7 +907,7 @@ img{
     }
 }
 
-/* Estilo por mi============================================================*/
+
 
 /*Estilos para los formularios (login y registro)*/ 
 /* Estilos para formularios generales */
@@ -916,7 +916,7 @@ img{
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    max-width: 400px;
+    max-width: 600px; /* Ajuste de ancho máximo estaba en 400px */
     margin: 20px auto;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -1166,4 +1166,59 @@ img{
     }
 } 
 
+/* Estilos para la tabla de reservas */
+.reservas-table {
+    width: 100%;
+    border-collapse: collapse; /* Eliminar espacios entre celdas */
+    margin-top: 20px;
+}
 
+.reservas-table th, .reservas-table td {
+    padding: 12px; /* Espacio dentro de las celdas */
+    text-align: left; /* Alinear texto a la izquierda */
+    border-bottom: 1px solid #ddd; /* Línea separadora */
+}
+
+.reservas-table th {
+    background-color: #f2f2f2; /* Color de fondo para el encabezado */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita para los encabezados */
+}
+
+.reservas-table tr:hover {
+    background-color: #f9f9f9; /* Color de fondo al pasar el mouse */
+}
+
+.btn-editar, .btn-cancelar {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 10px 15px; /* Espacio interno */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-editar:hover {
+    background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+}
+
+.btn-cancelar {
+    background-color: #dc3545; /* Rojo */
+    margin-left: 10px; /* Espacio entre botones */
+}
+
+.btn-cancelar:hover {
+    background-color: #c82333; /* Rojo más oscuro al pasar el mouse */
+}
+
+/* Estilos para mensajes de error y éxito */
+.error-message, .success-message {
+    font-size: 14px;
+    color: #d9534f; /* Rojo para error */
+    margin-top: 10px;
+}
+
+.success-message {
+    color: #5cb85c; /* Verde para éxito */
+}
