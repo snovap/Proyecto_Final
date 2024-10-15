@@ -215,7 +215,8 @@ app.post('/paquetes', (req, res) => {
 // Ruta para procesar la reserva de un paquete
 app.post('/reservar', (req, res) => {
     if (!req.session.ID_usuario) {
-        return res.status(401).json({ success: false, message: 'Debes estar logueado para hacer una reserva.' });
+        return res.status(401).send('<script>alert("Debes estar logueado para hacer una reserva.");window.location.href="/login.html"</script>');
+        // return res.status(401).json({ success: false, message: 'Debes estar logueado para hacer una reserva.' });
     }
 
     const ID_usuario = req.session.ID_usuario;
