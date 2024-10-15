@@ -2,7 +2,7 @@
   "name": "proyecto_final",
   "version": "1.0.0",
   "description": "En este repositorio se desarrolla la primer aplicación elaborada con los conocimientos del curso de Desarrollo Web Full Stack",
-  "main": "index.html",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -17,5 +17,8 @@
     "express-session": "^1.18.1",
     "mysql": "^2.18.1",
     "mysql2": "^3.11.3"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.5.9"
   }
 }
