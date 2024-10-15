@@ -270,6 +270,45 @@ app.post('/pagar', (req, res) => {
     });
 });
 
+// Ruta para procesar el formulario de vuelos con manejo de errores detallado
+app.post('/vuelos', (req, res) => {
+    try {
+        // Imprimir los datos recibidos en la terminal para verificar
+        console.log('Datos recibidos:', req.body);
+
+        const { aerolinea, numero_vuelo, hora_salida, hora_llegada, fecha_vuelo, clase, precio_vuelo } = req.body;
+
+        // Verificar que todos los campos estén presentes
+        if (!aerolinea || !numero_vuelo || !hora_salida || !hora_llegada || !fecha_vuelo || !clase || !precio_vuelo) {
+            console.error('Campos faltantes en el formulario:', req.body); // Imprime los campos faltantes
+            return res.status(400).json({ success: false, message: 'Por favor, complete todos los campos.' });
+        }
+
+        // Consulta SQL para insertar el vuelo en la base de datos
+        const insertarVueloQuery = "INSERT INTO vuelos (aerolinea, numero_vuelo, hora_salida, hora_llegada,fecha_vuelo, clase, precio_vuelo) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    
+        const valoresVuelo = [aerolinea, numero_vuelo, hora_salida, hora_llegada, fecha_vuelo, clase, precio_vuelo];
+
+        // Intentamos ejecutar la consulta para insertar los datos
+        db.query(insertarVueloQuery, valoresVuelo, (error, resultados) => {
+            if (error) {
+                console.error('Error al insertar el vuelo en la base de datos:', error); // Imprime el error en la terminal
+                return res.status(500).json({ success: false, message: 'Error al insertar el vuelo en la base de datos' });
+            }
+
+            // Enviar respuesta de éxito
+            console.log('Vuelo registrado exitosamente:', resultados);
+            // res.status(200).json({ success: true, message: 'Vuelo registrado exitosamente' });
+            return res.status(200).send('<script>alert("Vuelo registrado exitosamente");window.location.href="/index.html"</script>');
+        });
+    } catch (error) {
+        // Capturamos cualquier otro error inesperado
+        console.error('Error inesperado al procesar la solicitud:', error);
+        res.status(500).json({ success: false, message: 'Error inesperado al procesar la solicitud.' });
+    }
+});
+
+
 
 
 
