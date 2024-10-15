@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for proyecto-spgmeta-2024 on 2024-10-15T01:03:09-05:00
+# fly.toml app configuration file generated for proyecto-final-spgmeta-2024 on 2024-10-15T01:48:48-05:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = 'proyecto-spgmeta-2024'
+app = 'proyecto-final-spgmeta-2024'
 primary_region = 'bog'
 
 [build]
